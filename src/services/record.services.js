@@ -30,7 +30,8 @@ export default class CollectionService {
         return acc;
       }, [])
       .filter(
-        ({ totalCount }) => totalCount > minCount && totalCount < maxCount
+        ({ totalCount }) =>
+          totalCount > Number(minCount) && totalCount < Number(maxCount)
       );
   }
 
