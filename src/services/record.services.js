@@ -8,7 +8,7 @@ export default class CollectionService {
     this.params = params;
     this.operator = operator;
   }
-  async getCollectionWithFilters() {
+  async getRecordsWithFilters() {
     const { startDate, endDate, minCount, maxCount } = this.body;
     const records = await Records.find(
       {

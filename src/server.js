@@ -28,9 +28,9 @@ server.use('/api', routes);
 server.use((error, req, res, next) => {
   if (error) {
     if (typeof error === 'object') {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ code: 1, msg: error.message });
     } else {
-      res.status(500).json({ error });
+      res.status(500).json({ code: 1, msg: error });
     }
   } else {
     next();
@@ -44,7 +44,7 @@ server.all(['/', '/ping'], function (req, res) {
 });
 
 server.use(function (req, res) {
-  res.status(404).json({ error: 'path not found' });
+  res.status(404).json({ code: 2, msg: 'path not found' });
 });
 
 export default server;
