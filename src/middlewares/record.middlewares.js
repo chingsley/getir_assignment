@@ -1,6 +1,6 @@
 import { Joi } from '../validators/joi';
 
-export default class CollectionMiddleware {
+export default class RecordsMiddleware {
   static async validateReqBody(req, res, next) {
     try {
       const joiSchema = Joi.object({
@@ -9,11 +9,10 @@ export default class CollectionMiddleware {
         minCount: Joi.number().required(),
         maxCount: Joi.number().required(),
       });
-      const { error, value } = joiSchema.validate(req.body);
+      const { error } = joiSchema.validate(req.body);
       if (error) {
-        return res.status(400).json({ error: error.message });
+        return res.status(400).json({ code: 3, msg: error.message });
       }
-      req.body = value;
       return next();
     } catch (error) {
       return next(error);
