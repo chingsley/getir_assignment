@@ -1,0 +1,85 @@
+{
+  "name": "getir-assignment",
+  "version": "1.0.0",
+  "description": "rest api with express and mongoose",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && babel src --copy-files --out-dir dist",
+    "start": "npm run build && node dist/index.js",
+    "start:dev": "nodemon --exec babel-node ./src/index.js",
+    "------------------": "-------------------------"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.8.3",
+    "@babel/runtime": "^7.9.6",
+    "@hapi/joi": "^17.1.1",
+    "@hapi/joi-date": "^2.0.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "moment": "^2.27.0",
+    "mongoose": "^5.12.3",
+    "morgan": "^1.9.1",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.7.0",
+    "faker": "^5.1.0",
+    "husky": "^4.3.7",
+    "jest": "^25.5.4",
+    "jsdoc": "^3.6.4",
+    "lint-staged": "^10.2.2",
+    "nodemon": "^2.0.2",
+    "rm": "^0.1.8",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "collectCoverage": false,
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/build/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/utils/",
+      "<rootDir>/test/"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "eslint . --fix",
+      "npm run test"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "lint": "npm run lint",
+      "pre-commit": "npm run coverage"
+    }
+  },
+  "directories": {
+    "test": "test"
+  }
+}
