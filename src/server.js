@@ -44,7 +44,7 @@ server.all(['/', '/ping'], function (req, res) {
 });
 
 server.use(function (req, res) {
-  res.status(404).json({ errors: ['path not found'] });
+  res.status(404).json({ error: 'path not found' });
 });
 
 export default server;
