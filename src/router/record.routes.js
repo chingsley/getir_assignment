@@ -1,6 +1,6 @@
 import express from 'express';
-import CollectionController from '../controllers/collection.controllers';
-import CollectionMiddleware from '../middlewares/collection.middlewares';
+import CollectionController from '../controllers/record.controllers';
+import CollectionMiddleware from '../middlewares/record.middlewares';
 
 const router = express.Router();
 
