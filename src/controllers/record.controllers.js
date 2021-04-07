@@ -1,10 +1,10 @@
-import CollectionService from '../services/record.services';
+import RecordService from '../services/record.services';
 
 export default class RecordsController {
   static async getRecords(req, res, next) {
     try {
-      const collectionService = new CollectionService(req);
-      const records = await collectionService.getRecordsWithFilters();
+      const recordService = new RecordService(req);
+      const records = await recordService.getRecordsWithFilters();
       return res.status(200).json({ code: 0, msg: 'success', records });
     } catch (error) {
       return next(error);

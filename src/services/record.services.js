@@ -1,13 +1,13 @@
 import Records from '../database/models/Records';
-
-export default class CollectionService {
-  constructor({ body, files, query, params, user: operator }) {
+/**
+ * This class handles the the database calls to
+ * fetch the required data
+ */
+export default class RecordService {
+  constructor({ body }) {
     this.body = body;
-    this.files = files;
-    this.query = query;
-    this.params = params;
-    this.operator = operator;
   }
+
   async getRecordsWithFilters() {
     const { startDate, endDate, minCount, maxCount } = this.body;
     const records = await Records.find(
@@ -35,6 +35,11 @@ export default class CollectionService {
       );
   }
 
+  /**
+   *
+   * @param {array} counts the array of numbers to be summed
+   * @returns the sum of the counts array
+   */
   sum(counts) {
     return counts.reduce((acc, number) => {
       acc += number;
