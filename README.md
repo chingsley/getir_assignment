@@ -60,6 +60,17 @@ npm start
 }
 ```
 
+## Response codes
+
+## Response codes
+
+| code | definition                      | Http status |
+| ---- | ------------------------------- | ----------- |
+| 0    | success                         | 200 / 201   |
+| 1    | Internal server error           | 500         |
+| 2    | Path not found                  | 404         |
+| 3    | Bad request; invalid user input | 400         |
+
 ## Running Tests locally:
 
 #### Setup required environmental variables
