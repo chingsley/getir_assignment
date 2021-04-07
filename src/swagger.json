@@ -1,28 +1,58 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "template",
+    "title": "getir_assignment",
     "contact": {},
     "version": "1.0"
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api/v1",
+      "url": "https://kc-getir-assignment.herokuapp.com/api",
       "variables": {}
     }
   ],
   "paths": {
-    "/users": {
-      "get": {
+    "/records": {
+      "post": {
         "tags": [
-          "Misc"
+          "Records"
         ],
-        "summary": "users routes",
-        "operationId": "usersroutes",
+        "summary": "Fliter Records",
+        "description": "This endpoint filters records that are within the range of the paramters passed in the request body",
+        "operationId": "fliterrecords",
         "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/fliterrecordsrequest"
+              },
+              "example": {
+                "startDate": "2015-01-01",
+                "endDate": "2015-12-01",
+                "minCount": 100,
+                "maxCount": 120
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
-          "200": {
-            "description": "",
+          "0": {
+            "description": "success",
+            "headers": {}
+          },
+          "1": {
+            "description": "internal server error",
+            "headers": {}
+          },
+          "2": {
+            "description": "path not found",
+            "headers": {}
+          },
+          "3": {
+            "description": "bad request: invalid data in the request body",
             "headers": {}
           }
         },
@@ -30,10 +60,40 @@
       }
     }
   },
-  "tags": [
-    {
-      "name": "Misc",
-      "description": ""
+  "components": {
+    "schemas": {
+      "fliterrecordsrequest": {
+        "title": "fliter_records_request",
+        "required": [
+          "startDate",
+          "endDate",
+          "minCount",
+          "maxCount"
+        ],
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          },
+          "minCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "startDate": "2015-01-01",
+          "endDate": "2015-12-01",
+          "minCount": 100,
+          "maxCount": 120
+        }
+      }
     }
-  ]
+  }
 }

@@ -12,7 +12,7 @@
     "start:dev": "nodemon --exec babel-node ./src/index.js",
     "lint": "eslint './src/**/?(*).js' --fix",
     "------------------": "-------------------------",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --watch",
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
     "coverage": "cross-env DB_ENV=test jest --detectOpenHandles --verbose --coverage --forceExit",
     "test:recordsController": "cross-env NODE_ENV=test && jest test/controllers/records.controller.spec.js --detectOpenHandles --verbose --watch"
   },
