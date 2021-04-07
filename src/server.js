@@ -4,6 +4,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 
+// import config from './database/config';
+// const env = process.env.NODE_ENV || 'development';
+// const DB_URL = config[env].DB_CONNECTION_STRING;
+// console.log(env, DB_URL);
+
 import dotenv from 'dotenv';
 
 import swaggerDoc from './swagger.json';
@@ -16,7 +21,6 @@ const server = express();
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-// server.use(bodyParser.urlencoded({ extended: true }));
 
 server.use(
   morgan('dev', {
