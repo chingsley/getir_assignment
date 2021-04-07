@@ -3,6 +3,7 @@ import supertest from 'supertest';
 import server from '../../src/server';
 import mongoose from 'mongoose';
 import RecordsMiddleware from '../../src/middlewares/record.middlewares';
+require('dotenv').config();
 
 const app = supertest(server);
 
