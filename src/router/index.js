@@ -1,9 +1,9 @@
 import express from 'express';
 
-import collectionsRoute from './collection.routes';
+import recordsRoute from './record.routes';
 
 const router = express.Router();
 
-router.use('/collections', collectionsRoute);
+router.use('/records', recordsRoute);
 
 export default router;
